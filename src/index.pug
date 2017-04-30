@@ -1,0 +1,90 @@
+mixin modal(label, title, text)
+    - var name = 'modal-' + label
+    label.button(for=name) Click me!
+    div.modal
+        input(id=name type='checkbox')
+        label.overlay(for=name)
+        div
+            header
+                h2=title
+            article
+                p=text
+            footer
+                label.button.primary(for=name) OK
+
+mixin tab(label, group, isOpen)
+    div.tab
+        - var name = 'tab-' + label;
+        input(
+            id=name
+            type='radio'
+            name=group
+            checked=isOpen
+            autofocus=isOpen
+        )
+        label(for=name)
+        div
+            if block
+                block
+            else
+                p No content.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf8')
+        title='CSS Demo'
+        link(rel='stylesheet' href='main.css')
+    body
+        div.container
+            article
+                +tab('intro', 'page', true)
+                    div.titlepage
+                        h1 CSS Demo
+                        span “ the checkbox hack ”
+
+                +tab('css', 'page')
+                    h1 Hva er CSS?
+                    div.multicolumn
+                        ul
+                            li Cascading Style Sheet
+                            li Definere utseende
+                            ul
+                                li HTML
+                                li XML
+                            li Utseende vs. struktur
+                        div
+                            p Eksempelkode:
+                            pre
+                                code
+                                    | div {
+                                    |   width: 800px;
+                                    |   height: 600px;
+                                    |   background-color: solid #000;
+                                    | }
+
+                +tab('modal', 'page')
+                    h1 Modal Showcase
+                    +modal('modal', 'This is a test!', 'Along with some data.')
+
+                +tab('test', 'page')
+                    h1 Test page
+                    p Lalala, just ignore this text.
+
+                +tab('credits', 'page')
+                    h1 Credits
+                    ul
+                        li Inspirert av 
+                            a(
+                                href='https://picnicss.com/'
+                                target='_blank'
+                            ) Picnic CSS
+
+                        li Ideer fra 
+                            a(
+                                href='https://css-tricks.com/the-checkbox-hack/'
+                                target='_blank'
+                            ) Stuff you can do with the “Checkbox Hack”
+
+        footer
+            img(src='svett-banner.png')
