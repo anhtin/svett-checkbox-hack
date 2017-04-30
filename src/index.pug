@@ -1,6 +1,6 @@
-mixin modal(label, title, text)
+mixin modal(label, button, title, text)
     - var name = 'modal-' + label
-    label.button(for=name) Click me!
+    label.button(for=name)=button
     div.modal
         input(id=name type='checkbox')
         label.overlay(for=name)
@@ -91,8 +91,12 @@ html(lang='en')
                             div
                 +tab('modal', 'page')
                     h1 Modal 
-                    +modal('modal', 'This is a test!', 'Along with some data.')
-                
+                    +modal(
+                        'modal',
+                        'Ikke en knapp!',
+                        'This is a test!',
+                        'Along with some data.'
+                        )
                 +tab('collapsingtext', 'page')
                     .collapsing-text 
                         input(type='checkbox' id='collapse1')
@@ -109,10 +113,6 @@ html(lang='en')
                                 span ⭅
                                 span ⭆
                             div Halla
-
-                +tab('test', 'page')
-                    h1 Test page
-                    p Lalala, just ignore this text.
 
                 +tab('credits', 'page')
                     h1 Credits
