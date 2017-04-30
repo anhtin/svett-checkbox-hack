@@ -18,7 +18,7 @@ mixin tab(label, group, isOpen)
         input(
             id=name
             type='radio'
-            name=group
+            name='tab-group-' + group
             checked=isOpen
             autofocus=isOpen
         )
@@ -28,6 +28,21 @@ mixin tab(label, group, isOpen)
                 block
             else
                 p No content.
+
+mixin gallery(label, image, group, isSelected)
+    div.gallery
+        - var name = 'gallery-' + label;
+        input(
+            id=name
+            type='radio'
+            name='gallery-group-' + group
+            checked=isSelected
+            autofocus=isSelected
+        )
+        label(for=name)
+            img(src=image)
+        div
+            img(src=image)
 
 doctype html
 html(lang='en')
@@ -100,6 +115,11 @@ html(lang='en')
                         'This is a test!',
                         'Along with some data.'
                         )
+
+                +tab('gallery', 'page')
+                    h1 Bildegalleri
+                    +gallery('banner', 'svett-banner.png', 'example', true)
+                    +gallery('logo', 'svett-logo.png', 'example')
 
                 +tab('credits', 'page')
                     h1 Credits

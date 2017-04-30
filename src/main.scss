@@ -4,7 +4,7 @@ $gray: #ccc;
 
 $border-radius: 10px;
 $container-margin-top: 2vh;
-$container-margin-sides: 10vw;
+$container-margin-side: 10vw;
 $font-size: 3vh;
 $footer-size: 12vh;
 
@@ -52,7 +52,7 @@ li {
 }
 
 .container {
-    margin: $container-margin-top $container-margin-sides;
+    margin: $container-margin-top $container-margin-side 0 $container-margin-side;
 }
 
 .eksempel {
@@ -69,6 +69,69 @@ li {
     }
 }
 
+.gallery {
+    $thumbnail-width: 40px;
+    $thumbnail-height: 30px;
+    $image-width: 480px;
+    $image-height: 360px;
+    $margin: 30px;
+
+    display: inline-block;
+    position: relative;
+    height: $thumbnail-height + $image-height + $margin;
+
+    > input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    > label {
+        border: 1px solid $gray;
+        display: block;
+        padding: 0.5vh;
+        width: $thumbnail-width;
+        height: $thumbnail-height;
+
+        > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    > div {
+        display: block;
+        position: absolute;
+        top: $thumbnail-height + $margin;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity $tab-transition-duration;
+
+        > h1 {
+            border-bottom: 1px solid $gray;
+            font-size: 2em;
+        }
+
+        > img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    > input:checked {
+        + label {
+            box-shadow: $highlight-box;
+        }
+
+        ~ div {
+            width: $image-width;
+            height: $image-height;
+            max-height: $image-height;
+            opacity: 1;
+        }
+    }
+}
+
 .modal {
     .overlay {
         position: fixed;
@@ -77,11 +140,6 @@ li {
         left: 0;
         right: 0;
         background-color: rgba($black, 0.6);
-
-        &:before,
-        &:after {
-            display: none;
-        }
     }
 
     > input {
@@ -142,11 +200,20 @@ li {
         opacity: 0;
     }
 
+    > label {
+        border-color: $gray;
+        border-radius: $border-radius;
+        border-style: solid;
+        border-width: 1px;
+        display: inline-block;
+        padding: 0.5vh;
+    }
+
     > div {
         display: block;
         position: absolute;
         max-height: 0;
-        width: 100vw - 2*$container-margin-sides;
+        width: 100vw - 2*$container-margin-side;
         opacity: 0;
         overflow: hidden;
         transition: opacity $tab-transition-duration;
@@ -163,18 +230,9 @@ li {
         }
 
         ~ div {
-            max-height: 100vh - 2*$container-margin-top - $footer-size;
+            max-height: 100vh - 2*$container-margin-top;
             opacity: 1;
         }
-    }
-
-    > label {
-        border-color: $gray;
-        border-radius: $border-radius;
-        border-style: solid;
-        border-width: 1px;
-        display: inline-block;
-        padding: 0.5vh;
     }
 }
 
