@@ -104,9 +104,6 @@ html(lang='en')
                             label(for='toggle-1') Trykk her
                             input(type='checkbox' id='toggle-1')
                             div
-                        
-
-
                 +tab('modal', 'page')
                     h1 Modal 
                     +modal(
@@ -115,6 +112,22 @@ html(lang='en')
                         'This is a test!',
                         'Along with some data.'
                         )
+                +tab('collapsingtext', 'page')
+                    .collapsing-text 
+                        input(type='checkbox' id='collapse1')
+                        h2
+                            label(for='collapse1') Hva mer?
+                        div 
+                            p Mye mer
+                    .flex-sidebar
+                        .column
+                            p  
+                        .column
+                            input(type='checkbox' id='sidebar')
+                            label(for='sidebar')
+                                span ⭅
+                                span ⭆
+                            div Halla
 
                 +tab('gallery', 'page')
                     h1 Bildegalleri
