@@ -55,6 +55,20 @@ li {
     margin: $container-margin-top $container-margin-sides;
 }
 
+.eksempel {
+    > input[type='checkbox'] {
+        display: none;
+    }
+    > div {
+        background: green;
+        width: 400px;
+        height: 400px;
+    }
+    > input[type='checkbox']:checked~div {
+        background: red;
+    }
+}
+
 .modal {
     .overlay {
         position: fixed;

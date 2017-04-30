@@ -63,8 +63,37 @@ html(lang='en')
                                     |   background-color: solid #000;
                                     | }
 
+                +tab('hack', 'page')
+                    h1 Hvordan funker det?
+                    .multicolumn
+                        pre
+                            code.
+                                #{'<label for="toggle-1">Halla</label>'}
+                                #{'<input type="checkbox" id="toggle-1">'}
+                                #{'<div></div>'}
+
+                                #{'input[type=checkbox] {'}
+                                #{'    display: none;'}
+                                #{'}'}
+
+                                #{'div {'}
+                                #{'    background: green;'}
+                                #{'    width: 400px;'}
+                                #{'    height: 400px;'}
+                                #{'}'}
+
+                                #{'input[type=checkbox]:checked~div {'}
+                                #{'    background: red;'}
+                                #{'}'}
+                        div.eksempel
+                            label(for='toggle-1') Trykk her
+                            input(type='checkbox' id='toggle-1')
+                            div
+                        
+
+
                 +tab('modal', 'page')
-                    h1 Modal Showcase
+                    h1 Modal 
                     +modal('modal', 'This is a test!', 'Along with some data.')
 
                 +tab('test', 'page')
