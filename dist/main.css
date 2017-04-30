@@ -1,0 +1,130 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3vh; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 12vh; }
+  footer > * {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 2vh;
+    float: right; }
+
+li {
+  margin: 0 0 4vh 0; }
+
+.button {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 10px;
+  user-select: none;
+  cursor: pointer; }
+  .button:hover {
+    box-shadow: inset 0 0 0 99em rgba(0, 0, 0, 0.1); }
+
+.container {
+  margin: 2vh 10vw; }
+
+.eksempel > input[type='checkbox'] {
+  display: none; }
+
+.eksempel > div {
+  background: green;
+  width: 400px;
+  height: 400px; }
+
+.eksempel > input[type='checkbox']:checked ~ div {
+  background: red; }
+
+.modal .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .modal .overlay:before, .modal .overlay:after {
+    display: none; }
+
+.modal > input {
+  display: none; }
+  .modal > input ~ * {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    z-index: 100; }
+
+.modal > div {
+  position: fixed;
+  top: 25vh;
+  left: 25vw;
+  right: 25vw;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px; }
+  .modal > div > header {
+    border-bottom: 1px solid #ccc; }
+    .modal > div > header h2 {
+      margin: 10px 0; }
+  .modal > div > footer {
+    float: right; }
+
+.modal > input:checked ~ * {
+  display: block;
+  max-height: 1000vh;
+  opacity: 1; }
+
+.multicolumn {
+  display: flex;
+  justify-content: space-between;
+  align-items: top; }
+
+.tab {
+  display: inline;
+  position: relative; }
+  .tab > input {
+    position: absolute;
+    opacity: 0; }
+  .tab > div {
+    display: block;
+    position: absolute;
+    max-height: 0;
+    width: 80vw;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.8s; }
+    .tab > div > h1 {
+      border-bottom: 1px solid #ccc;
+      font-size: 2em; }
+  .tab > input:checked + label {
+    box-shadow: inset 0 0 0 99em rgba(0, 0, 0, 0.1); }
+  .tab > input:checked ~ div {
+    max-height: 84vh;
+    opacity: 1; }
+  .tab > label {
+    border-color: #ccc;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    padding: 0.5vh; }
+
+.titlepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 84vh;
+  transform: translateY(-2em); }
+  .titlepage > h1 {
+    font-size: 3em; }
+  .titlepage > span {
+    font-size: 1em;
+    font-style: italic;
+    opacity: 0.5; }
