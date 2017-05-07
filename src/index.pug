@@ -149,8 +149,11 @@ html(lang='en')
                 +tab('gallery', 'page')
                     h1 Bildegalleri
                     .gallery
+                        - var images = ['https://scontent.fosl1-1.fna.fbcdn.net/v/t1.0-9/13094272_1089791887761632_4030619443380374445_n.jpg?oh=b268aa35f71d63fd6471537c7cfc8c56&oe=59855BFB', 'https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12710915_1016072778466877_3589432433688288848_o.jpg?oh=e19e6ec52eaf0f24635dc9e7b240ed31&oe=598926A3', 'https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12697357_1016073031800185_7069973167347469181_o.jpg?oh=1e6a66b131ce4c40fafc8688b676b457&oe=59741C46'];
                         +gallery('banner', 'img/svett-banner.png', 'example', true)
                         +gallery('logo', 'img/svett-logo.png', 'example')
+                        for image, index in images
+                            +gallery('image-' + index, image, 'example')
 
                 +tab('credits', 'page')
                     h1 Credits
