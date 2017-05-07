@@ -8,7 +8,10 @@ mixin modal(label, button, title, text)
             header
                 h2=title
             article
-                p=text
+                if block
+                    block
+                else
+                    p No content.
             footer
                 label.button.primary(for=name) OK
 
@@ -109,9 +112,23 @@ html(lang='en')
                     +modal(
                         'modal',
                         'Ikke en knapp!',
-                        'This is a test!',
-                        'Along with some data.'
+                        'Takket være CSS combinators!'
                         )
+                        ul
+                            li ‘ ’ (mellomrom) indikerer vilkårlig underelement (descendant).
+                            li ‘>’ indikerer direkte underelement (child).
+                            li ‘+’ indikerer naboelement (adjacent sibling).
+                            li ‘~’ indikerer søskenelement (sibling).
+                    pre
+                        code.
+                            div > * {
+                                opacity: 0;
+                            }
+
+                            div > input:checked ~ * {
+                                opacity: 1;
+                            }
+
                 +tab('collapsingtext', 'page')
                     .collapsing-text 
                         input(type='checkbox' id='collapse1')
