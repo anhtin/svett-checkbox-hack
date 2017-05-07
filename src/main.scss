@@ -70,64 +70,64 @@ li {
 }
 
 .gallery {
-    $thumbnail-width: 40px;
-    $thumbnail-height: 30px;
+    $thumbnail-width: 60px;
+    $thumbnail-height: 45px;
     $image-width: 480px;
     $image-height: 360px;
-    $margin: 30px;
+    $image-transition-duration: 1s;
+    $offset: 15px;
+    $margin: 20px;
 
-    display: inline-block;
-    position: relative;
     height: $thumbnail-height + $image-height + $margin;
 
-    > input {
-        position: absolute;
-        opacity: 0;
-    }
+    .gallery-img {
+        display: inline;
+        position: relative;
 
-    > label {
-        border: 1px solid $gray;
-        display: block;
-        padding: 0.5vh;
-        width: $thumbnail-width;
-        height: $thumbnail-height;
-
-        > img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    > div {
-        display: block;
-        position: absolute;
-        top: $thumbnail-height + $margin;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition: opacity $tab-transition-duration;
-
-        > h1 {
-            border-bottom: 1px solid $gray;
-            font-size: 2em;
+        > input {
+            position: absolute;
+            opacity: 0;
         }
 
-        > img {
-            width: 100%;
-            height: 100%;
-        }
-    }
+        > label {
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 5px;
+            height: $thumbnail-height;
+            width: $thumbnail-width;
 
-    > input:checked {
-        + label {
-            box-shadow: $highlight-box;
+            > img {
+                width: 100%;
+                height: 100%;
+            }
         }
 
-        ~ div {
-            width: $image-width;
-            height: $image-height;
-            max-height: $image-height;
-            opacity: 1;
+        > div {
+            display: block;
+            position: absolute;
+            top: $thumbnail-height + $margin - $offset;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity $image-transition-duration;
+
+            > img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        > input:checked {
+            + label {
+                box-shadow: $highlight-box;
+            }
+
+            ~ div {
+                width: $image-width;
+                height: $image-height;
+                max-height: $image-height;
+                opacity: 1;
+            }
         }
     }
 }

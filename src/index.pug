@@ -33,8 +33,8 @@ mixin tab(label, group, isOpen)
                 p No content.
 
 mixin gallery(label, image, group, isSelected)
-    div.gallery
-        - var name = 'gallery-' + label;
+    div.gallery-img
+        - var name = 'gallery-img-' + label;
         input(
             id=name
             type='radio'
@@ -148,8 +148,9 @@ html(lang='en')
 
                 +tab('gallery', 'page')
                     h1 Bildegalleri
-                    +gallery('banner', 'svett-banner.png', 'example', true)
-                    +gallery('logo', 'svett-logo.png', 'example')
+                    .gallery
+                        +gallery('banner', 'img/svett-banner.png', 'example', true)
+                        +gallery('logo', 'img/svett-logo.png', 'example')
 
                 +tab('credits', 'page')
                     h1 Credits
@@ -167,4 +168,4 @@ html(lang='en')
                             ) Stuff you can do with the “Checkbox Hack”
 
         footer
-            img(src='svett-banner.png')
+            img(src='img/svett-banner.png')
