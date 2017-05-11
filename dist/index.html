@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8">
+    <title>CSS Demo</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="container">
+      <article>
+        <div class="tab">
+          <input id="tab-intro" type="radio" name="tab-group-page" checked="checked" autofocus="autofocus"/>
+          <label for="tab-intro"></label>
+          <div>
+            <div class="titlepage">
+              <h1>CSS Demo</h1><span>“ the checkbox hack ”</span>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-css" type="radio" name="tab-group-page"/>
+          <label for="tab-css"></label>
+          <div>
+            <h1>Hva er CSS?</h1>
+            <div class="multicolumn">
+              <ul>
+                <li>Cascading Style Sheet</li>
+                <li>Definere utseende</li>
+                <ul>
+                  <li>HTML</li>
+                  <li>XML</li>
+                </ul>
+                <li>Utseende vs. struktur</li>
+              </ul>
+              <div>
+                <p>Eksempelkode:</p>
+                <pre><code>div {
+    width: 800px;
+    height: 600px;
+    background-color: solid #000;
+}
+</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-hack" type="radio" name="tab-group-page"/>
+          <label for="tab-hack"></label>
+          <div>
+            <h1>Hvordan funker det?</h1>
+            <div class="multicolumn">
+              <pre><code>&lt;label for=&quot;toggle-1&quot;&gt;Halla&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;toggle-1&quot;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+input[type=checkbox] {
+    display: none;
+}
+
+div {
+    background: green;
+    width: 400px;
+    height: 400px;
+}
+
+input[type=checkbox]:checked~div {
+    background: red;
+}</code></pre>
+              <div class="eksempel">
+                <label for="toggle-1">Trykk her</label>
+                <input type="checkbox" id="toggle-1">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-modal" type="radio" name="tab-group-page"/>
+          <label for="tab-modal"></label>
+          <div>
+            <h1>Modal </h1>
+            <label class="button" for="modal-modal">Ikke en knapp!</label>
+            <div class="modal">
+              <input id="modal-modal" type="checkbox"/>
+              <label class="overlay" for="modal-modal"></label>
+              <div>
+                <header>
+                  <h2>Takket være CSS combinators!</h2>
+                </header>
+                <article>
+                  <ul>
+                    <li>‘ ’ (mellomrom) indikerer vilkårlig underelement (descendant).</li>
+                    <li>‘>’ indikerer direkte underelement (child).</li>
+                    <li>‘+’ indikerer naboelement (adjacent sibling).</li>
+                    <li>‘~’ indikerer søskenelement (sibling).</li>
+                  </ul>
+                </article>
+                <footer>
+                  <label class="button primary" for="modal-modal">OK</label>
+                </footer>
+              </div>
+            </div>
+            <pre><code>div > * {
+    opacity: 0;
+}
+
+div > input:checked ~ * {
+    opacity: 1;
+}
+</code></pre>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-collapsingtext" type="radio" name="tab-group-page"/>
+          <label for="tab-collapsingtext"></label>
+          <div>
+            <div class="collapsing-text"> 
+              <input type="checkbox" id="collapse1">
+              <h2>
+                <label for="collapse1">Hva mer?</label>
+              </h2>
+              <div> 
+                <p>Mye mer</p>
+              </div>
+            </div>
+            <div class="flex-sidebar">
+              <div class="column">
+                <p> </p>
+              </div>
+              <div class="column">
+                <input type="checkbox" id="sidebar">
+                <label for="sidebar"><span>⭅</span><span>⭆</span></label>
+                <div>Halla</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-gallery" type="radio" name="tab-group-page"/>
+          <label for="tab-gallery"></label>
+          <div>
+            <h1>Bildegalleri</h1>
+            <div class="gallery">
+              <div class="gallery-img">
+                <input id="gallery-img-banner" type="radio" name="gallery-group-example" checked="checked" autofocus="autofocus"/>
+                <label for="gallery-img-banner"><img src="img/svett-banner.png"/></label>
+                <div><img src="img/svett-banner.png"/></div>
+              </div>
+              <div class="gallery-img">
+                <input id="gallery-img-logo" type="radio" name="gallery-group-example"/>
+                <label for="gallery-img-logo"><img src="img/svett-logo.png"/></label>
+                <div><img src="img/svett-logo.png"/></div>
+              </div>
+              <div class="gallery-img">
+                <input id="gallery-img-image-0" type="radio" name="gallery-group-example"/>
+                <label for="gallery-img-image-0"><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t1.0-9/13094272_1089791887761632_4030619443380374445_n.jpg?oh=b268aa35f71d63fd6471537c7cfc8c56&amp;oe=59855BFB"/></label>
+                <div><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t1.0-9/13094272_1089791887761632_4030619443380374445_n.jpg?oh=b268aa35f71d63fd6471537c7cfc8c56&amp;oe=59855BFB"/></div>
+              </div>
+              <div class="gallery-img">
+                <input id="gallery-img-image-1" type="radio" name="gallery-group-example"/>
+                <label for="gallery-img-image-1"><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12710915_1016072778466877_3589432433688288848_o.jpg?oh=e19e6ec52eaf0f24635dc9e7b240ed31&amp;oe=598926A3"/></label>
+                <div><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12710915_1016072778466877_3589432433688288848_o.jpg?oh=e19e6ec52eaf0f24635dc9e7b240ed31&amp;oe=598926A3"/></div>
+              </div>
+              <div class="gallery-img">
+                <input id="gallery-img-image-2" type="radio" name="gallery-group-example"/>
+                <label for="gallery-img-image-2"><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12697357_1016073031800185_7069973167347469181_o.jpg?oh=1e6a66b131ce4c40fafc8688b676b457&amp;oe=59741C46"/></label>
+                <div><img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t31.0-8/12697357_1016073031800185_7069973167347469181_o.jpg?oh=1e6a66b131ce4c40fafc8688b676b457&amp;oe=59741C46"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input id="tab-credits" type="radio" name="tab-group-page"/>
+          <label for="tab-credits"></label>
+          <div>
+            <h1>Credits</h1>
+            <ul>
+              <li>Inspirert av <a href="https://picnicss.com/" target="_blank">Picnic CSS</a></li>
+              <li>Ideer fra <a href="https://css-tricks.com/the-checkbox-hack/" target="_blank">Stuff you can do with the “Checkbox Hack”</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer><img src="img/svett-banner.png"></footer>
+  </body>
+</html>
